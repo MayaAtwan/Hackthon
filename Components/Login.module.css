@@ -1,0 +1,65 @@
+.container {
+  background-color: #f9e8e8;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px; /* Adjusted border-radius to match questions style */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.heading {
+  font-family: 'Arial', sans-serif;
+  color: #333; /* Dark text color */
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.form {
+  text-align: left; /* Align form content to the left */
+}
+
+.formGroup {
+  margin-bottom: 25px;
+}
+
+.formLabel {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+  color: #333; /* Dark text color */
+}
+
+.formInput {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #333; /* Dark border color */
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+}
+
+.submitButton {
+  background-color: #333; /* Dark background color */
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #222; /* Darker background color on hover */
+}

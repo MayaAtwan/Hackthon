@@ -1,0 +1,52 @@
+/* styles/styles.module.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  background-color: #fde7e9; /* Light pink background color */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+.questionContainer {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333; /* Dark text color */
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.optionButton {
+  padding: 10px 20px;
+  border: 2px solid #fde7e9; /* Light pink border */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.optionButton:hover {
+  background-color: #fde7e9; /* Light pink on hover */
+  color: #333; /* Dark text color on hover */
+  border-color: #ff6b81; /* Darker pink border on hover */
+}
+
+.score {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Dark text color */
+}
