@@ -1,7 +1,7 @@
 // pages/index.js
 import React, { useState } from 'react';
 import questions from '../public/questionnaire.json';
-import styles from '../style.module.css';
+import styles from '../Style/style.module.css';
 import Navbar from '../Components/Navbar';
 
 export default function Home() {
@@ -10,9 +10,6 @@ export default function Home() {
 
   const handleSubmit = () => {
     // Calculate the score based on user responses
-    // (You need to implement the scoring logic here)
-
-    // For simplicity, let's just count the number of correct answers
     const newScore = Object.values(userResponses).filter(
       (response, index) => response === questions[index].answer
     ).length;
