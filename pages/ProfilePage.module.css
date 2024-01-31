@@ -1,0 +1,53 @@
+/* styles/profilePage.module.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #fde7e9; /* Light pink background color */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  }
+  
+  .profileContainer {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profileLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    margin-bottom: 10px;
+  }
+  
+  .profileInfo {
+    font-size: 18px;
+    color: #333; /* Dark text color */
+  }
+  
+  .profileButton {
+    padding: 10px 20px;
+    border: 2px solid #fde7e9; /* Light pink border */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .profileButton:hover {
+    background-color: #fde7e9; /* Light pink on hover */
+    color: #333; /* Dark text color on hover */
+    border-color: #ff6b81; /* Darker pink border on hover */
+  }
+  
+  .score {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+  }
+  

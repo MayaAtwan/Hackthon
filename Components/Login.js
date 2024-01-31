@@ -1,4 +1,4 @@
-// Components/Login.js
+// components/Login.js
 import React from 'react';
 import { useRouter } from 'next/router'; // Correct import statement
 import styles from './Login.module.css';
@@ -15,17 +15,17 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <h2 className={styles.heading}>Login</h2>
+        <h2 className={styles.heading}>Not Only Fan</h2>
         <form className={styles.form} onSubmit={handleLogin}>
           <div className={styles.formGroup}>
-            <label htmlFor="email" className={styles.formLabel}>Email</label>
-            <input type="email" id="email" className={styles.formInput} placeholder="Enter your email" />
+            <label htmlFor="username" className={styles.formLabel}>Username</label>
+            <input type="text" id="username" className={styles.formInput} placeholder="Enter your username" />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="password" className={styles.formLabel}>Password</label>
             <input type="password" id="password" className={styles.formInput} placeholder="Enter your password" />
           </div>
-          <button className={styles.submitButton} type="submit">Login</button>
+          <button className={styles.submitButton} type="submit">Sign In</button>
         </form>
       </div>
     </div>
