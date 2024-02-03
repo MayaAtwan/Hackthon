@@ -1,0 +1,62 @@
+/* styles/signup.module.css */
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8c7cd; /* Pink background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a modern look */
+  }
+  
+  .container h1 {
+    font-size: 32px;
+    color: #333; /* Dark text color */
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif; /* Optional: Specify a custom font */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Add letter spacing */
+  }
+  
+  .container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container label {
+    font-size: 18px;
+    color: #555; /* Medium-dark text color */
+    margin-bottom: 8px;
+  }
+  
+  .container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 2px solid #ec5e73; /* Light pink border */
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .container input:focus {
+    border-color: #ff7184; /* Darker pink border on focus */
+  }
+  
+  .container button {
+    background-color: #ffa6ac; /* Light pink background color */
+    color: #fff; /* White text color */
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .container button:hover {
+    background-color: #ff6a7d; /* Slightly darker pink on hover */
+  }
+  
