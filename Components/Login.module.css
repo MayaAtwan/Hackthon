@@ -1,25 +1,31 @@
+/* CSS for the Login component */
+
 .container {
-  background-color: #f9e8e8;
+  background-image: url('../Not\ Only\ Fan\ \(1\).png');
+  background-color: #F0CDFF; /* Updated background color */
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat; /* Do not repeat the background */
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Center the container horizontally */
+  align-items: center; /* Center items vertically */
 }
 
 .formContainer {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
   padding: 40px;
-  border-radius: 12px; /* Adjusted border-radius to match questions style */
+  border-radius: 60px; /* Rounded border */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 500px;
   max-width: 90%;
-  text-align: center;
+  text-align: center; /* Center align text */
+  margin: 200px 800px 0 50px; /* Adjust margin for positioning (moved to the left) */
 }
 
 .heading {
-  font-family: 'Arial', sans-serif;
-  color: #333; /* Dark text color */
-  font-size: 28px;
+  font-family: 'Poppins', sans-serif; /* Updated font */
+  color: #FF66C4; /* Updated text color */
+  font-size: 48px; /* Updated font size */
   margin-bottom: 30px;
 }
 
@@ -28,38 +34,57 @@
 }
 
 .formGroup {
-  margin-bottom: 25px;
+  margin-bottom: 30px; /* Increased spacing */
 }
 
 .formLabel {
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
+  font-family: 'Poppins', sans-serif; /* Updated font */
+  font-size: 18px; /* Slightly larger font size */
   display: block;
-  margin-bottom: 8px;
-  color: #333; /* Dark text color */
+  margin-bottom: 12px; /* Increased spacing */
+  color: #FF66C4; /* Updated text color */
+}
+
+/* Style the icons */
+.formLabel i {
+  margin-right: 10px; /* Add some spacing between the icon and the text */
+}
+
+.labelText {
+  font-weight: bold;
 }
 
 .formInput {
   width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #333; /* Dark border color */
-  font-size: 16px;
-  font-family: 'Arial', sans-serif;
+  padding: 14px; /* Slightly larger input */
+  border-radius: 10px; /* Rounded border */
+  border: 2px solid #FF66C4; /* Updated border color */
+  font-size: 18px; /* Slightly larger font size */
+  font-family: 'Poppins', sans-serif; /* Updated font */
 }
 
-.submitButton {
-  background-color: #333; /* Dark background color */
-  color: #fff;
-  padding: 12px 20px;
+.forgotPasswordLink {
+  color: #666666; /* Updated link color */
+  font-size: 14px; /* Updated font size */
+  text-decoration: none; /* Remove default underline */
+}
+
+.forgotPasswordLink:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.signupButton {
+  /* Style for the sign-up button */
+  background-color: #FF66C4;
+  color: white;
+  padding: 12px 24px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 16px;
-  font-family: 'Arial', sans-serif;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.submitButton:hover {
-  background-color: #222; /* Darker background color on hover */
+.signupButton:hover {
+  background-color: #D6459D;
 }
