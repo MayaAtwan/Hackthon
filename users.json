@@ -1,0 +1,39 @@
+[
+  {
+    "email": "test@example.com",
+    "fullName": "John Doe",
+    "age": 25,
+    "phone": "123-456-7890"
+  },
+  {
+    "email": "mayaaa@GMAIL.COM",
+    "fullName": "MAYAA",
+    "age": "24",
+    "phone": "0987654"
+  },
+  {
+    "email": "lama@gmail",
+    "fullName": "lama",
+    "age": "22",
+    "phone": "1234567"
+  },
+  {
+    "email": "mayaaatwan@GMAIL.COM",
+    "fullName": "Maya Atwan",
+    "age": "23",
+    "phone": "0506160620"
+  },
+  {
+    "email": "mayaaatwan@GMAIL.COM",
+    "fullName": "Maya Atwan",
+    "age": "23",
+    "phone": "0506160620"
+  },
+  {
+    "email": "man@GMAIL.COM",
+    "fullName": "Maya Atwan",
+    "age": "23",
+    "phone": "0506160620",
+    "password": "123"
+  }
+]
