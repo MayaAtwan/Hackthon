@@ -19,7 +19,7 @@ app.use(
 );
 app.post('/signup', async (req, res) => {
   try {
-    const { email, fullName, age, phone,password } = req.body;
+    const { email, fullName, age, phone, password } = req.body;
 
     let users = [];
     try {
@@ -31,7 +31,7 @@ app.post('/signup', async (req, res) => {
       }
     }
 
-    users.push({ email, fullName, age, phone,password });
+    users.push({ email, fullName, age, phone, password }); // Store the password as a string
 
     await fs.writeFile('users.json', JSON.stringify(users, null, 2));
 
