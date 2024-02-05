@@ -38,4 +38,48 @@
   }
   
   /* Add more styles as needed */
+  .signupButton {
+    /* Style for the sign-up button */
+    background-color: #FF66C4;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .videoContainer {
+    margin-top: 20px;
+  }
+  
+  .videoWrapper {
+    margin-bottom: 20px;
+    position: relative; /* Add position relative */
+  }
+  
+  .examButton {
+    position: absolute;
+    bottom: 10px; /* Adjust bottom spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border: none;
+    background-color: #4267B2; /* Facebook blue */
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .examButton:hover {
+    background-color: #3b5998; /* Darker Facebook blue on hover */
+  }
   

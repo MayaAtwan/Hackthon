@@ -1,4 +1,4 @@
-/* styles/styles.module.css */
+/* styles/QuestionsPage.module.css */
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -21,11 +21,13 @@
   font-size: 20px;
   font-weight: bold;
   color: #333; /* Dark text color */
+  margin-bottom: 10px; /* Added to create space below the question */
 }
 
 .options {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column; /* Display options in a column */
+  align-items: center; /* Center align options horizontally */
   margin-top: 15px;
 }
 
@@ -36,6 +38,7 @@
   cursor: pointer;
   font-size: 18px;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  margin: 6px; /* Added margin to create space between options */
 }
 
 .optionButton:hover {
@@ -50,3 +53,4 @@
   font-weight: bold;
   color: #333; /* Dark text color */
 }
+

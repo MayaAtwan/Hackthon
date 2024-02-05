@@ -7,7 +7,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    router.push('/QuestionsPage');
+    router.push('/HomePage');
   };
 
   const handleSignup = () => {

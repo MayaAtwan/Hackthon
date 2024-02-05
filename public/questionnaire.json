@@ -1,20 +1,27 @@
-
 [
-    {
-      "question": "Do you believe in the importance of self-expression?",
-      "answer": "Yes"
-    },
-    {
-      "question": "Is it great to share your talents and creativity online?",
-      "answer": "Yes"
-    },
-    {
-      "question": "Do you think kindness and positivity make the internet a better place?",
-      "answer": "Yes"
-    },
-    {
-      "question": "Should everyone have a safe space online to connect and support each other?",
-      "answer": "Yes"
-    }
-  ]
-  
+  {
+    "question": "What should you do if you see an unfamiliar link?",
+    "options": ["Click on it immediately", "Ask an adult before clicking", "Share it with your friends", "Ignore it"],
+    "answer": "Ask an adult before clicking"
+  },
+  {
+    "question": "Why is it important to have a strong password?",
+    "options": ["It makes it easy to remember", "It helps to keep your information safe", "It can be the same for all accounts", "It should include your name"],
+    "answer": "It helps to keep your information safe"
+  },
+  {
+    "question": "What information should you not share online?",
+    "options": ["Your favorite color", "Your personal details like address and phone number", "Your homework answers", "What games you like"],
+    "answer": "Your personal details like address and phone number"
+  },
+  {
+    "question": "What is a safe website usually marked with?",
+    "options": ["A green padlock symbol", "A red warning sign", "Lots of pop-up ads", "Funny pictures"],
+    "answer": "A green padlock symbol"
+  },
+  {
+    "question": "If you receive a message from a stranger, what should you do?",
+    "options": ["Reply immediately", "Open any attachments they sent", "Tell an adult like a parent or teacher", "Share it with your friends"],
+    "answer": "Tell an adult like a parent or teacher"
+  }
+]

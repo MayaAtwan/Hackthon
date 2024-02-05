@@ -1,28 +1,31 @@
-// pages/QuestionsPage.js
+// QuestionsPage.js
+
 import React, { useState } from 'react';
-import questions from '../public/questionnaire.json';
+import Modal from './Modal'; // Assuming the Modal component is in the same directory
 import styles from './QuestionsPage.module.css';
 import Navbar from '../Components/Navbar.js';
+import questions from '../public/questionnaire.json';
 
 const QuestionsPage = () => {
   const [userResponses, setUserResponses] = useState({});
   const [score, setScore] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
-    // Calculate the score based on user responses
-    // (You need to implement the scoring logic here)
-
-    // For simplicity, let's just count the number of correct answers
-    const newScore = Object.values(userResponses).filter(
-      (response, index) => response === questions[index].answer
-    ).length;
-
+    const newScore = Object.keys(userResponses).reduce((totalScore, questionIndex) => {
+      if (userResponses[questionIndex] === questions[questionIndex].answer) {
+        return totalScore + 1;
+      }
+      return totalScore;
+    }, 0);
     setScore(newScore);
+    setSubmitted(true);
   };
 
   const resetQuiz = () => {
     setUserResponses({});
     setScore(null);
+    setSubmitted(false);
   };
 
   return (
@@ -34,31 +37,36 @@ const QuestionsPage = () => {
           <div key={index} className={styles.questionContainer}>
             <p className={styles.question}>{question.question}</p>
             <div className={styles.options}>
-              <button
-                className={`${styles.optionButton} ${userResponses[index] === 'Yes' ? styles.yes : ''}`}
-                onClick={() => setUserResponses({ ...userResponses, [index]: 'Yes' })}
-              >
-                Yes
-              </button>
-              <button
-                className={`${styles.optionButton} ${userResponses[index] === 'No' ? styles.no : ''}`}
-                onClick={() => setUserResponses({ ...userResponses, [index]: 'No' })}
-              >
-                No
-              </button>
+              {question.options.map((option, optionIndex) => (
+                <button
+                  key={optionIndex}
+                  className={`${styles.optionButton} ${submitted ? styles.disabled : ''} ${
+                    userResponses[index] === option ? styles.selected : ''
+                  }`}
+                  onClick={() => {
+                    if (!submitted) {
+                      setUserResponses(prevState => ({ ...prevState, [index]: option }));
+                    }
+                  }}
+                  disabled={submitted}
+                >
+                  {option}
+                </button> 
+              ))}
             </div>
           </div>
         ))}
-        <button className={styles.optionButton} onClick={handleSubmit}>
+        <button className={styles.optionButton} onClick={handleSubmit} disabled={submitted}>
           Submit
         </button>
-        {score !== null && (
-          <div>
-            <p className={styles.score}>Your score: {score} out of {questions.length}</p>
-            <button className={styles.optionButton} onClick={resetQuiz}>
-              Retake Quiz
-            </button>
-          </div>
+       
+        {submitted && (
+          <Modal
+            message="Quiz submitted."
+            score={score}
+            totalQuestions={questions.length} // Pass the totalQuestions prop
+            onClose={() => setSubmitted(false)}
+          />
         )}
       </div>
     </div>
