@@ -1,23 +1,34 @@
-// pages/QuestionsPage.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import questions from '../public/questionnaire.json';
 import styles from './QuestionsPage.module.css';
 import Navbar from '../Components/Navbar.js';
 
 const QuestionsPage = () => {
+  const [user, setUser] = useState(null); // State to hold user information
   const [userResponses, setUserResponses] = useState({});
   const [score, setScore] = useState(null);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Retrieve user information from localStorage
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+      setUser(JSON.parse(loggedInUser));
+    }
+  }, []);
 
   const handleSubmit = () => {
-    // Calculate the score based on user responses
-    // (You need to implement the scoring logic here)
+    if (Object.keys(userResponses).length !== questions.length) {
+      setError('Please answer all questions before submitting.');
+      return;
+    }
 
-    // For simplicity, let's just count the number of correct answers
     const newScore = Object.values(userResponses).filter(
       (response, index) => response === questions[index].answer
     ).length;
 
     setScore(newScore);
+    setError('');
   };
 
   const resetQuiz = () => {
@@ -49,9 +60,10 @@ const QuestionsPage = () => {
             </div>
           </div>
         ))}
-        <button className={styles.optionButton} onClick={handleSubmit}>
+        <button className={styles.submitButton} onClick={handleSubmit}>
           Submit
         </button>
+        {error && <p className={styles.error}>{error}</p>}
         {score !== null && (
           <div>
             <p className={styles.score}>Your score: {score} out of {questions.length}</p>
