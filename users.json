@@ -35,5 +35,24 @@
     "age": "23",
     "phone": "0506160620",
     "password": "123"
+  },
+  {
+    "email": "maya.atwan.2000@gmail.com",
+    "fullName": "Maya Atwan",
+    "age": "19",
+    "phone": "0506160620"
+  },
+  {
+    "email": "maya.atwan.2000@gmail.com",
+    "fullName": "Maya Atwan",
+    "age": "19",
+    "phone": "0506160620"
+  },
+  {
+    "email": "maya.atwan.2000@gmail.com",
+    "fullName": "Maya Atwan",
+    "age": "19",
+    "phone": "0506160620",
+    "password": "123"
   }
 ]

@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from './Login.module.css';
+import userData from '../users.json'; // Import JSON data
 
 const Login = () => {
   const router = useRouter();
-
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const handleLogin = (e) => {
     e.preventDefault();
-    router.push('/HomePage');
+  
+    const user = userData.find(u => u.email === username && u.password === password);
+  
+    if (user) {
+      // Store user information in localStorage
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      // Redirect to the home page or any other page after successful login
+      router.push('/QuestionsPage');
+    } else {
+      setError('Invalid username or password');
+    }
   };
-
   const handleSignup = () => {
     router.push('./pages/Signup');
   };
@@ -22,28 +34,29 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <form className={styles.form} onSubmit={handleSignup}>
+        <form className={styles.form} onSubmit={handleLogin}>
           <div className={styles.formGroup}>
             <label htmlFor="username" className={styles.formLabel}>
               <i className="fas fa-user"></i> {/* Font Awesome user icon */}
               <span className={styles.labelText}>Username</span>
             </label>
-            <input type="text" id="username" className={styles.formInput} placeholder="Enter your username" />
+            <input type="text" id="username" className={styles.formInput} placeholder="Enter your username" value={username} onChange={(e) => setUsername(e.target.value)} />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="password" className={styles.formLabel}>
               <i className="fas fa-lock"></i> {/* Font Awesome lock icon */}
               <span className={styles.labelText}>Password</span>
             </label>
-            <input type="password" id="password" className={styles.formInput} placeholder="Enter your password" />
+            <input type="password" id="password" className={styles.formInput} placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
             <a href="#" className={styles.forgotPasswordLink} onClick={handleForgotPassword}>
               <span className={styles.forgotPasswordText}>Forgot your password?</span>
             </a>
           </div>
-          <button className={styles.submitButton} type="submit">Sign Up</button>
+          <button className={styles.submitButton} type="submit">Sign In</button>
         </form>
         {/* Add sign-up button */}
-        <button className={styles.signupButton} onClick={handleLogin}>Sign In</button>
+        <button className={styles.signupButton} onClick={handleSignup}>Sign Up</button>
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     </div>
   );

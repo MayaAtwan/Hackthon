@@ -73,6 +73,11 @@
   text-decoration: underline; /* Underline on hover */
 }
 
+.signupButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .signupButton {
   /* Style for the sign-up button */
   background-color: #FF66C4;

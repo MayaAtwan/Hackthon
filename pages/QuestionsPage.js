@@ -7,6 +7,7 @@ import Navbar from '../Components/Navbar.js';
 import questions from '../public/questionnaire.json';
 
 const QuestionsPage = () => {
+  const [user, setUser] = useState(null); // State to hold user information
   const [userResponses, setUserResponses] = useState({});
   const [score, setScore] = useState(null);
   const [submitted, setSubmitted] = useState(false);
