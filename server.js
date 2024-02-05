@@ -17,6 +17,30 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.post('/signup', async (req, res) => {
+  try {
+    const { email, fullName, age, phone,password } = req.body;
+
+    let users = [];
+    try {
+      const existingData = await fs.readFile('users.json', 'utf-8');
+      users = JSON.parse(existingData);
+    } catch (readError) {
+      if (readError.code !== 'ENOENT') {
+        throw readError;
+      }
+    }
+
+    users.push({ email, fullName, age, phone,password });
+
+    await fs.writeFile('users.json', JSON.stringify(users, null, 2));
+
+    res.status(201).json({ message: 'User signed up successfully' });
+  } catch (error) {
+    console.error('Error during sign-up:', error);
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+});
 
 app.post('/login', async (req, res) => {
   try {
