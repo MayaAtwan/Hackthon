@@ -8,15 +8,12 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  
   const handleLogin = (e) => {
     e.preventDefault();
-  
     const user = userData.find(u => u.email === username && u.password === password);
-  
     if (user) {
-      // Store user information in localStorage
       localStorage.setItem('loggedInUser', JSON.stringify(user));
-      // Redirect to the home page or any other page after successful login
       router.push('/QuestionsPage');
     } else {
       setError('Invalid username or password');

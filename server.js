@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -17,6 +18,22 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+// ... (your signup and login routes)
+
+app.get('/profilePage', (req, res) => {
+  try {
+    const user = req.session.user;
+    if (user) {
+      res.status(200).json({ fullName: user.fullName, email: user.email });
+    } else {
+      res.status(401).json({ message: 'User not logged in' });
+    }
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+});
 app.post('/signup', async (req, res) => {
   try {
     const { email, fullName, age, phone, password } = req.body;
@@ -61,6 +78,10 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Internal server error', error: error.message });
   }
 });
+
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

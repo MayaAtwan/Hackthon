@@ -1,12 +1,12 @@
-// QuestionsPage.js
-
 import React, { useState } from 'react';
+import { useRouter } from 'next/router'; // Import the useRouter hook
 import Modal from './Modal'; // Assuming the Modal component is in the same directory
 import styles from './QuestionsPage.module.css';
 import Navbar from '../Components/Navbar.js';
 import questions from '../public/questionnaire.json';
 
 const QuestionsPage = () => {
+  const router = useRouter(); // Initialize the router
   const [user, setUser] = useState(null); // State to hold user information
   const [userResponses, setUserResponses] = useState({});
   const [score, setScore] = useState(null);
@@ -21,6 +21,11 @@ const QuestionsPage = () => {
     }, 0);
     setScore(newScore);
     setSubmitted(true);
+    // Redirect to profile page after submission and pass user information
+    router.push({
+      pathname: '/ProfilePage',
+      query: { user: JSON.stringify(user) }
+    });
   };
 
   const resetQuiz = () => {
