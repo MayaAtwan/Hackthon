@@ -1,7 +1,7 @@
-/* CSS for the Login component */
+/* Login.module.css */
 
 .container {
-  background-image: url('../Not\ Only\ Fan\ \(1\).png');
+  background-image: url('../Not\ Only\ Fan\ \(3\).png');
   background-color: #F0CDFF; /* Updated background color */
   background-size: cover; /* Cover the entire container */
   background-repeat: no-repeat; /* Do not repeat the background */
@@ -42,7 +42,7 @@
   font-size: 18px; /* Slightly larger font size */
   display: block;
   margin-bottom: 12px; /* Increased spacing */
-  color: #FF66C4; /* Updated text color */
+  color: black; /* Updated text color */
 }
 
 /* Style the icons */
@@ -73,13 +73,13 @@
   text-decoration: underline; /* Underline on hover */
 }
 
-.signupButtonContainer {
+.signinButtonContainer {
   display: flex;
   justify-content: center;
 }
 
-.signupButton {
-  /* Style for the sign-up button */
+.signinButton {
+  /* Style for the sign-in button */
   background-color: #FF66C4;
   color: white;
   padding: 12px 24px;
@@ -90,6 +90,6 @@
   transition: background-color 0.3s ease;
 }
 
-.signupButton:hover {
+.signinButton:hover {
   background-color: #D6459D;
 }

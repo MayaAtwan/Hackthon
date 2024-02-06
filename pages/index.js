@@ -7,7 +7,7 @@ import Login from '../Components/Login';
 export default function Home() {
   const [userResponses, setUserResponses] = useState({});
   const [score, setScore] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // New state for tracking login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = async (email, password) => {
     try {
@@ -21,17 +21,12 @@ export default function Home() {
 
       if (response.ok) {
         const responseData = await response.json();
-
-        // Check if the server response indicates successful login
         if (responseData.success) {
-          // Set the login status to true upon successful login
           setIsLoggedIn(true);
         } else {
-          // Handle cases where the login credentials are incorrect
           console.log('Invalid email or password');
         }
       } else {
-        // Handle other errors (e.g., server error)
         console.log('Error during login:', response.statusText);
       }
     } catch (error) {
@@ -40,24 +35,18 @@ export default function Home() {
   };
 
   const handleLogout = () => {
-    // Perform logout logic
-    // Set the login status to false upon logout
     setIsLoggedIn(false);
-    // Optionally, reset other state values like userResponses and score
     setUserResponses({});
     setScore(null);
   };
 
   const handleSubmit = () => {
-    // If the user is logged in, calculate the quiz score
     if (isLoggedIn) {
       const newScore = Object.values(userResponses).filter(
         (response, index) => response === questions[index].answer
       ).length;
       setScore(newScore);
     } else {
-      // Handle cases where the user is not logged in
-      // You might redirect to the login page or show a message
       console.log('User is not logged in');
     }
   };
@@ -69,18 +58,16 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
+      {/* Render Navbar only if isLoggedIn is true */}
+      {isLoggedIn && <Navbar />}
       {isLoggedIn ? (
-        // If the user is logged in, render the quiz content
         <div>
           <h2>Quiz</h2>
-          {/* Quiz content goes here */}
           <button onClick={handleSubmit}>Submit Quiz</button>
           <button onClick={resetQuiz}>Reset Quiz</button>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
-        // If the user is not logged in, render the login component
         <Login onLogin={handleLogin} />
       )}
     </div>

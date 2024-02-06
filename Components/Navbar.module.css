@@ -1,7 +1,13 @@
 /* styles/Navbar.module.css */
+
 .navbar {
-  background-color: #1a1a1a; /* Dark background color */
-  padding: 20px;
+  background-image: url('../Not\ Only\ Fan\ 4.png'); /* Add your background image URL here */
+  background-size: cover; /* Cover the entire navbar */
+  background-repeat: no-repeat; /* Do not repeat the background */
+  padding: 30px;
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+  align-items: center; /* Align items vertically */
 }
 
 .navbar ul {
@@ -12,18 +18,18 @@
 }
 
 .navbar li {
-  margin-right: 30px;
+  margin-right: 20px; /* Decreased margin between list items */
 }
 
 .navbar a {
   text-decoration: none;
-  color: #fff; /* White text color */
+  color: #1a1a1a; /* Dark text color */
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px; /* Decreased font size */
   transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-  color: #ffa6ac; /* Light pink on hover */
-  text-shadow: 2px 2px 4px rgba(255, 166, 172, 0.5); /* Text shadow for a creative effect */
+  color: #D6459D; /* Light pink on hover */
+  text-shadow: 1px 1px 2px rgba(214, 69, 157, 0.5); /* Adjusted text shadow */
 }
