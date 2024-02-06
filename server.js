@@ -1,4 +1,3 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -79,6 +78,36 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// Assuming you have a `users.json` file to store user data
+const usersFilePath = 'users.json';
+
+app.post('/answer-question', (req, res) => {
+  try {
+    const { userId, isCorrect } = req.body;
+
+    // Read the existing user data from the file
+    const existingData = fs.readFileSync(usersFilePath, 'utf-8');
+    let users = JSON.parse(existingData);
+
+    // Find the user by ID
+    const userIndex = users.findIndex((user) => user.id === userId);
+
+    if (userIndex !== -1) {
+      // Update the user's coin balance based on the correctness of the answer
+      users[userIndex].coins += isCorrect ? 1 : 0; // Update based on your logic
+
+      // Save the updated user data back to the file
+      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+
+      res.status(200).json({ message: 'Answer submitted successfully' });
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
+  } catch (error) {
+    console.error('Error submitting answer:', error);
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+});
 
 
 

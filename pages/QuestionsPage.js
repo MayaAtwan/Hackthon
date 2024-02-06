@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
-import { useRouter } from 'next/router'; // Import the useRouter hook
-import Modal from './Modal'; // Assuming the Modal component is in the same directory
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Modal from './Modal';
 import styles from './QuestionsPage.module.css';
-import Navbar from '../Components/Navbar.js';
+import Navbar from '../Components/Navbar';
 import questions from '../public/questionnaire.json';
 
 const QuestionsPage = () => {
-  const router = useRouter(); // Initialize the router
-  const [user, setUser] = useState(null); // State to hold user information
+  const router = useRouter();
+  const [user, setUser] = useState(null);
   const [userResponses, setUserResponses] = useState({});
   const [score, setScore] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    // Retrieve user data from localStorage on component mount
+    const storedUser = localStorage.getItem('loggedInUser');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const handleSubmit = () => {
     const newScore = Object.keys(userResponses).reduce((totalScore, questionIndex) => {
@@ -21,11 +29,16 @@ const QuestionsPage = () => {
     }, 0);
     setScore(newScore);
     setSubmitted(true);
-    // Redirect to profile page after submission and pass user information
-    router.push({
-      pathname: '/ProfilePage',
-      query: { user: JSON.stringify(user) }
-    });
+
+    if (user !== null) {
+      const updatedUser = { ...user, coins: user.coins + newScore };
+      setUser(updatedUser);
+
+      // Store updated user information back to localStorage
+      localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
+    }
+
+    router.push('/ProfilePage'); // Redirect to profile page
   };
 
   const resetQuiz = () => {
@@ -57,7 +70,7 @@ const QuestionsPage = () => {
                   disabled={submitted}
                 >
                   {option}
-                </button> 
+                </button>
               ))}
             </div>
           </div>
@@ -65,12 +78,12 @@ const QuestionsPage = () => {
         <button className={styles.optionButton} onClick={handleSubmit} disabled={submitted}>
           Submit
         </button>
-       
+
         {submitted && (
           <Modal
             message="Quiz submitted."
             score={score}
-            totalQuestions={questions.length} // Pass the totalQuestions prop
+            totalQuestions={questions.length}
             onClose={() => setSubmitted(false)}
           />
         )}

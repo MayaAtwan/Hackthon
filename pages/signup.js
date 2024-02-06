@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import Navbar from "../Components/Navbar";
-import signupStyles from "../Style/signup.module.css";
-import styles from "../Style/style.module.css";
+import React, { useState } from 'react';
+import Navbar from '../Components/Navbar';
+import styles from '../Style/style.module.css';
+import signupStyles from '../Style/signup.module.css';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
-    email: "",
-    fullName: "",
-    age: "",
-    phone: "",
-    password: "",
-    confirmPassword: "", // Add password confirmation field
+    email: '',
+    fullName: '',
+    age: '',
+    phone: '',
+    password: '',
+    confirmPassword: '', // Add password confirmation field
   });
 
   const [signupStatus, setSignupStatus] = useState({
@@ -32,21 +32,17 @@ export default function SignUp() {
 
     // Basic client-side validation
     if (formData.password !== formData.confirmPassword) {
-      setSignupStatus({
-        success: false,
-        error: "Passwords do not match",
-        loading: false,
-      });
+      setSignupStatus({ success: false, error: 'Passwords do not match', loading: false });
       return;
     }
 
     try {
       setSignupStatus({ success: false, error: null, loading: true });
 
-      const response = await fetch("http://localhost:3000/signup", {
-        method: "POST",
+      const response = await fetch('http://localhost:3000/signup', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
@@ -56,27 +52,19 @@ export default function SignUp() {
       if (response.ok) {
         setSignupStatus({ success: true, error: null, loading: false });
         setFormData({
-          email: "",
-          fullName: "",
-          age: "",
-          phone: "",
-          password: "",
-          confirmPassword: "",
+          email: '',
+          fullName: '',
+          age: '',
+          phone: '',
+          password: '',
+          confirmPassword: '',
         });
       } else {
-        setSignupStatus({
-          success: false,
-          error: responseData.message,
-          loading: false,
-        });
+        setSignupStatus({ success: false, error: responseData.message, loading: false });
       }
     } catch (error) {
-      console.error("Error during signup:", error);
-      setSignupStatus({
-        success: false,
-        error: "Internal server error",
-        loading: false,
-      });
+      console.error('Error during signup:', error);
+      setSignupStatus({ success: false, error: 'Internal server error', loading: false });
     }
   };
 

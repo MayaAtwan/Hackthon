@@ -25,6 +25,7 @@ const ProfilePage = () => {
                 <p>Name:  {user.fullName}</p>
                 <p>Email: {user.email}</p>
                 <p>coins: {user.coins}</p>
+                <p>phone: {user.phone}</p>
               </>
             )}
           </div>
