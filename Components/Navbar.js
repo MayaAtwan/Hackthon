@@ -15,11 +15,6 @@ export default function Navbar() {
             <span>Profile</span>
           </Link>
         </li>
-        <li>
-          <Link href="/signup">
-            <span>Sign Up</span>
-          </Link>
-        </li>
       </ul>
     </nav>
   );

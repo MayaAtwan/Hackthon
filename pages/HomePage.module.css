@@ -1,85 +1,61 @@
-/* Home.css */
-
+/* styles/HomePage.module.css */
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  .logo {
-    font-size: 24px;
-  }
-  
-  .nav-links {
-    list-style-type: none;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-right: 20px;
-  }
-  
-  .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .content {
-    margin-top: 40px;
-  }
-  
-  /* Add more styles as needed */
-  .signupButton {
-    /* Style for the sign-up button */
-    background-color: #FF66C4;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .videoContainer {
-    margin-top: 20px;
-  }
-  
-  .videoWrapper {
-    margin-bottom: 20px;
-    position: relative; /* Add position relative */
-  }
-  
-  .examButton {
-    position: absolute;
-    bottom: 10px; /* Adjust bottom spacing */
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    border: none;
-    background-color: #4267B2; /* Facebook blue */
-    color: white;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .examButton:hover {
-    background-color: #3b5998; /* Darker Facebook blue on hover */
-  }
-  
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 44px;
+  text-align: center;
+  background-image:  url('../SignUpBackground.png');
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  font-family: 'Arial', sans-serif; /* Updated font family */
+}
+
+.videoContainer {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.videoBox {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden; /* Hide overflowing content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  transition: transform 0.3s ease; /* Add transition effect */
+}
+
+.videoBox:hover {
+  transform: translateY(-5px); /* Move up on hover */
+}
+
+.videoWrapper {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 aspect ratio for responsive videos */
+  overflow: hidden;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.examButton {
+  padding: 10px 20px;
+  border: none;
+  background-color: #c49adb; /* Red button */
+  color: rgb(0, 0, 0)868;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  outline: none; /* Remove outline */
+}
+
+.examButton:hover {
+  background-color: #91719b; /* Lighter red on hover */
+}

@@ -20,6 +20,15 @@ const QuestionsPage = () => {
     }
   }, []);
 
+  const handleOptionClick = (questionIndex, option) => {
+    if (!submitted) {
+      setUserResponses(prevState => ({
+        ...prevState,
+        [questionIndex]: prevState[questionIndex] === option ? null : option,
+      }));
+    }
+  };
+
   const handleSubmit = () => {
     const newScore = Object.keys(userResponses).reduce((totalScore, questionIndex) => {
       if (userResponses[questionIndex] === questions[questionIndex].answer) {
@@ -50,31 +59,32 @@ const QuestionsPage = () => {
   return (
     <div>
       <Navbar />
-      <div className={styles.container}>
+      
+      <div className={styles.container} style={{ marginTop: '20px' }}>
         <h1>Questionnaire</h1>
-        {questions.map((question, index) => (
-          <div key={index} className={styles.questionContainer}>
-            <p className={styles.question}>{question.question}</p>
-            <div className={styles.options}>
-              {question.options.map((option, optionIndex) => (
-                <button
-                  key={optionIndex}
-                  className={`${styles.optionButton} ${submitted ? styles.disabled : ''} ${
-                    userResponses[index] === option ? styles.selected : ''
-                  }`}
-                  onClick={() => {
-                    if (!submitted) {
-                      setUserResponses(prevState => ({ ...prevState, [index]: option }));
-                    }
-                  }}
-                  disabled={submitted}
-                >
-                  {option}
-                </button>
-              ))}
+        <div className={styles.questionMatrix}>
+          {questions.map((question, index) => (
+            <div key={index} className={styles.questionContainer}>
+              <p className={styles.question}>{question.question}</p>
+              <div className={styles.options}>
+                {question.options.map((option, optionIndex) => (
+                  <button
+                    key={optionIndex}
+                    className={`${styles.optionButton} ${
+                      submitted ? styles.disabled : ''
+                    } ${
+                      userResponses[index] === option ? styles.selected : ''
+                    }`}
+                    onClick={() => handleOptionClick(index, option)}
+                    disabled={submitted}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <button className={styles.optionButton} onClick={handleSubmit} disabled={submitted}>
           Submit
         </button>

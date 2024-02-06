@@ -1,5 +1,3 @@
-/* styles/Navbar.module.css */
-
 .navbar {
   background-image: url('../Not\ Only\ Fan\ 4.png'); /* Add your background image URL here */
   background-size: cover; /* Cover the entire navbar */
@@ -25,7 +23,8 @@
   text-decoration: none;
   color: #1a1a1a; /* Dark text color */
   font-weight: bold;
-  font-size: 18px; /* Decreased font size */
+  font-size: 20px; /* Increased font size */
+  font-family: 'Comic Sans MS', cursive; /* Same font family as login */
   transition: color 0.3s ease;
 }
 

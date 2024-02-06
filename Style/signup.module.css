@@ -1,4 +1,4 @@
-/* styles/signup.module.css */
+/* signup.module.css */
 
 .container {
   background-image: url('../SignUpBackground.png');
@@ -19,7 +19,7 @@
   font-size: 26px; /* Updated font size */
   color: black;
   margin-bottom: 30px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Comic Sans MS', cursive; /* Updated font type */
   padding: 10px;
   border: 2px solid #FF66C4;
   border-radius: 10px;
@@ -54,7 +54,7 @@
   border: 2px solid #FF66C4; /* Updated border color */
   border-radius: 10px;
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Comic Sans MS', cursive; /* Updated font type */
   box-sizing: border-box;
   transition: border-color 0.3s ease;
 }

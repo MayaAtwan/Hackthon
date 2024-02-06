@@ -1,12 +1,13 @@
-/* styles/QuestionsPage.module.css */
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 40px;
+  padding: 44px;
   text-align: center;
+  background-image: url('../SignUpBackground.png');
   background-color: #fde7e9; /* Light pink background color */
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  font-family: 'Comic Sans MS', cursive; /* Updated font family */
 }
 
 .questionContainer {
@@ -22,12 +23,13 @@
   font-weight: bold;
   color: #333; /* Dark text color */
   margin-bottom: 10px; /* Added to create space below the question */
+  font-family: 'Comic Sans MS', cursive; /* Updated font family */
 }
 
 .options {
   display: flex;
   flex-direction: column; /* Display options in a column */
-  align-items: center; /* Center align options horizontally */
+  align-items: flex-start; /* Align options to the left */
   margin-top: 15px;
 }
 
@@ -39,6 +41,7 @@
   font-size: 18px;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   margin: 6px; /* Added margin to create space between options */
+  font-family: 'Comic Sans MS', cursive; /* Updated font family */
 }
 
 .optionButton:hover {
@@ -52,5 +55,11 @@
   font-size: 24px;
   font-weight: bold;
   color: #333; /* Dark text color */
+  font-family: 'Comic Sans MS', cursive; /* Updated font family */
 }
 
+/* New code added */
+.optionButton.selected {
+  background-color: #b885ce; /* Selected option background color */
+  color: #fff; /* Selected option text color */
+}
